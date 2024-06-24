@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.module.category" id="module_category_school">
+        <field name="name">School Management</field>
+        <field name="sequence">11</field>
+    </record>
+
+    FOR CONFIGRATION MENU ACCESS
+    <record id="config_group" model="res.groups">
+        <field name="name">Config Access</field>
+        <field name="category_id" ref="module_category_school"/>
+    </record>
+
+    FOR SET TO APPLICATION BUTTON ACCESS
+    <record id="set_to_app_button_group" model="res.groups">
+        <field name="name">Set to App Button Access</field>
+        <field name="category_id" ref="module_category_school"/>    
+    </record>
+
+    FOR TEACHER APPROVE AND REJECT BUTTON ACCESS
+    <record id="teacher_button_group" model="res.groups">
+        <field name="name">Teacher Approve Button Access</field>
+        <field name="category_id" ref="module_category_school"/>
+    </record>
+
+    FOR DEPARTMENT MENU ACCESS
+    <record id="depart_group" model="res.groups">
+        <field name="name">Department Access</field>
+        <field name="category_id" ref="module_category_school"/>    
+    </record>
+
+    FOR TEACHER PROFILE ACCESS
+    <record id="teacher_profile_group" model="res.groups">
+        <field name="name">Teacher Profile Access</field>
+        <field name="category_id" ref="module_category_school"/>    
+    </record>
+
+    FOR SCHOOL PROPERTY ACCESS IN STUDENT MODEL
+    <record id="school_property_group" model="res.groups">
+        <field name="name">School Property Access</field>
+        <field name="category_id" ref="module_category_school"/>
+    </record>
+
+    FOR PARENT PROFILE ACCESS
+    <record id="parent_profile_access" model="res.groups">
+        <field name="name">Parent Profile Access</field>
+        <field name="category_id" ref="module_category_school"/>
+    </record>
+
+
+    <record id="admin_login_group" model="res.groups">
+        <field name="name">All Access</field>
+        <field name="category_id" ref="module_category_school"/>
+    </record>
+
+    ADMIN DELETE ACCESS
+    <record id="admin_del_access" model="res.groups">
+        <field name="name">Admin Delete Access</field>
+        <field name="category_id" ref="module_category_school"/>
+    </record>
+
+    STUDENT PROFILE ACCESS
+    <record id="Studen_profile_access" model="res.groups">
+        <field name="name">Student Profile Access</field>
+        <field name="category_id" ref="module_category_school"/>
+    </record>
+
+    <record id="student_mail_group" model="res.groups">
+        <field name="name">Mail Group</field>
+        <field name="category_id" ref="module_category_school"/>
+    </record>
+</odoo>

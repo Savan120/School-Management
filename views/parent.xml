@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<data>
+<!-- THIS IS A PARENT.DETAIL TREE VIEW -->
+    <record id="parent_tree_view" model="ir.ui.view">
+        <field name='name'>parent.tree.view</field>
+        <field name="model">parent.info</field>
+        <field name="arch" type="xml">
+            <tree string = "Parent">
+                <field name= "standard_id"/> 
+                <field name= "father_name"/>
+                <field name = "mother_name"/>
+                <field name= "parent_no"/>
+                <field name = "father_occ"/>
+                <field name = "mother_occ"/>
+            </tree>
+        </field>
+    </record>
+
+     <!-- THIS IS A PARENT.DETAIL FORM VIEW -->
+
+    <record id="parent_form_view" model="ir.ui.view">
+        <field name="name">parent.form.view</field>
+        <field name="model">parent.info</field>
+        <field name="arch" type = "xml">
+            <form string="Parent detail">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name= "standard_id" required ='1'/>
+                            <field name="student_name" context = "{'call_from_student':True}"/>
+                        </group>
+                    </group>
+                    <div>
+                        <field name= "stud_ids" domain="[('standard_id', '=', standard_id)]"/>
+                    </div>
+                    <group>
+                        <group>
+                            <field name = "father_name"/>
+                            <field name="parent_no"/>
+                            <field name="parent_mail"/>
+                        </group>
+                        <group>
+                            <field name = "mother_name"/>
+                            <field name = "father_occ"/>
+                            <field name = "mother_occ"/>
+                            <!-- <field name =  "user_id"/> -->
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string = "Marksheet Detail">
+                            <div>
+                                <field name= "marksheet_ids"/>
+                            </div>
+                        </page>
+                        <page string = "Exam Detail">
+                            <field name= "exam_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- ACTIONS (WINDOW) -->
+
+    <record id="action_parent_detail" model="ir.actions.act_window">
+        <field name="name">Parents Details</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">parent.info</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="search_view_id" ref="student_search_view"/> -->
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+    </record>    
+        
+</data>
+</odoo>

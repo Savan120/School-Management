@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- THIS IS A BOOK.DETAIL TREE VIEW -->
+    <record id="hobby_tree_view" model="ir.ui.view">
+        <field name='name'>hobby.view</field>
+        <field name="model">hobby.detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+     <!-- THIS IS A BOOK.DETAIL FORM VIEW -->
+
+    <record id="hobby_form_view" model="ir.ui.view">
+        <field name="name">hobby.form.view</field>
+        <field name="model">hobby.detail</field>
+        <field name="arch" type = "xml">
+            <form string="hobby detail">
+                <sheet>
+                    <group>
+                       <field name = 'name'/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ACTIONS (WINDOW) -->
+
+    <record id="action_hobby_detail" model="ir.actions.act_window">
+        <field name="name">hobby</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hobby.detail</field>
+        <field name="view_mode">tree,form</field>
+    </record> 
+       
+</odoo>
+                   
+
+                        

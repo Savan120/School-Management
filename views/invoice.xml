@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+THIS IS A TREE VIEW OF INVOICE
+    <record id="invoice_tree_view" model="ir.ui.view">
+        <field name='name'>invoice.view</field>
+        <field name="model">invoice.detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="sequence"/>
+                <field name="std_ids"/>
+                <field name="student_ids"/>
+            </tree>
+        </field>
+    </record>
+
+THIS IS A FORM VIEW OF INVOICE
+    <record id="invoice_form_view" model="ir.ui.view">
+        <field name='name'>invoice.view</field>
+        <field name="model">invoice.detail</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <div>
+                            <h1><field name = "sequence"/></h1>
+                        </div>
+                        <field name="sequence" invisible= "1"/>
+                        <field name="std_ids"/>
+                        <field name="student_ids" widget="many2many_tags" domain="[('standard_id', '=', 'std_ids')]"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+ ACTION WINDOW
+    <record id="action_invoice_detail" model="ir.actions.act_window">
+        <field name="name">Invoice</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">invoice.detail</field>
+        <field name="view_mode">tree,form</field>
+    </record>    
+</odoo>

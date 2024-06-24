@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id = "main" name = "School Mannagement" sequence = "1">
+
+        <menuitem id = "Student_admission"
+                  name = "Student Form" 
+                  action = "action_student_info"
+                  groups = "School_management_system.Studen_profile_access"
+                  sequence = "1"/>
+
+        <menuitem id = "profile"
+                  name = "Profile"
+                  sequence = "2"/> 
+
+        <menuitem id="config_menu" 
+                  name="Configuration"
+                  groups="School_management_system.config_group"
+                  sequence="7"/>
+        
+        <menuitem id="department_menu"
+                  name = "Department"
+                  groups = "School_management_system.depart_group"
+                  action= "action_department_detail"
+                  sequence= "3"/>
+        
+        <menuitem id="student_stationery"
+                  name="Stationery"
+                  action="action_stationery_detail"
+                  sequence="5"/>
+
+        <menuitem id = "Student_excel_report"
+                  name = "Student Excel Report" 
+                  sequence = "6"/>
+
+   
+    </menuitem>
+
+
+
+        <menuitem id = "detail_parent" 
+                  action = "action_parent_detail" 
+                  name = "Parent" 
+                  groups="School_management_system.parent_profile_access"
+                  parent = "profile"
+                  sequence = "1"/>
+        
+        <menuitem id = "detail_teacher" 
+                  action = "action_teacher_detail" 
+                  groups = "School_management_system.teacher_profile_group"
+                  name = "Teacher" 
+                  parent = "profile"
+                  sequence = "2"/>
+
+        <menuitem id = "student_excel"  
+                  name = "Excel Report" 
+                  action = "action_student_excel"
+                  parent = "Student_excel_report"
+                  sequence = "1"/>
+
+        <!-- Configuration Menu -->
+
+        <menuitem id = "detail_std" 
+                  action = "action_std_detail" 
+                  name = "Standard" 
+                  parent = "config_menu"
+                  sequence = "1"/>
+        
+        <menuitem id = "detail_subject" 
+                  action = "action_subject_detail" 
+                  parent = "config_menu"
+                  name = "Subject" 
+                  sequence = "2"/>
+
+        <menuitem id = "detail_lib" 
+                  action = "action_lib_detail" 
+                  name = "Library" 
+                  parent = "config_menu"
+                  sequence = "3"/>
+
+        <menuitem id = "detail_book" 
+                  action = "action_book_detail" 
+                  name = "Book Detail" 
+                  parent = "config_menu"
+                  sequence = "4"/>
+
+        <menuitem id="exam_ids"
+                  action="action_exam_detail"
+                  name="Exam"
+                  parent="config_menu"
+                  sequence="7"/>
+
+        
+        <menuitem id="marksheet"
+                  action="action_marksheet_detail"
+                  name= "Marksheet"
+                  parent = "config_menu"
+                  sequence="8"/>
+        
+        <menuitem id="hobby"
+                  action="action_hobby_detail"
+                  name="Hobby" 
+                  parent="config_menu"
+                  sequence="9"/>
+        
+        <menuitem id="property"
+                  action="action_property_detail"
+                  name="Property" 
+                  parent="config_menu"
+                  sequence="10"/>
+
+        <menuitem id="invoice"
+                  action="account.action_move_out_invoice_type"
+                  name="Invoice" 
+                  parent="config_menu"
+                  sequence="11"/>
+
+
+</odoo>

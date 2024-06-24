@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- THIS IS A department.DETAIL TREE VIEW -->
+    <record id="department_view" model="ir.ui.view">
+        <field name='name'>st.view</field>
+        <field name="model">department.detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name = "incharge"/>
+                <field name = "member"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- THIS IS A department.DETAIL FORM VIEW -->
+
+    <record id="department_form_view" model="ir.ui.view">
+        <field name="name">department.form.view</field>
+        <field name="model">department.detail</field>
+        <field name="arch" type = "xml">
+            <form string="department detail">
+                <sheet>
+                    <group>
+                        <field name = "depart"/>
+                        <field name = "incharge"/> 
+                    </group>
+                    <div>
+                        <field name = "member" domain= "[('depart', 'in' ,[depart])]"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- ACTIONS (WINDOW) -->
+
+    <record id="action_department_detail" model="ir.actions.act_window">
+        <field name="name">Department</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">department.detail</field>
+        <field name="view_mode">tree,form</field>
+ 
+    </record>    
+</odoo>
+                   
+
+                        

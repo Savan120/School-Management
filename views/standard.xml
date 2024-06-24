@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- THIS IS A STANDARD.DETAIL TREE VIEW -->
+    <record id="std_tree_view" model="ir.ui.view">
+        <field name='name'>std.tree.view</field>
+        <field name="model">standard.detail</field>
+        <field name="arch" type="xml">
+            <tree string = "Standard">
+                <field name = "teacher"/>
+                <field name="std"/>
+                <field name="medium"/>
+                <field name = "standard_id" widget="many2many_tags"/>
+                <field name="fee"/>
+            </tree>
+        </field>
+    </record>
+
+     <!-- THIS IS A STANDARD.DETAIL FORM VIEW -->
+
+    <record id="std_form_view" model="ir.ui.view">
+        <field name="name">std.form.view</field>
+        <field name="model">standard.detail</field>
+        <field name="arch" type = "xml">
+            <form string="Standard detail">
+            <header>
+                <!-- <button name="duplicate" type = "object" class= "oe_highlight" string = "COPY"/> -->
+                <button name="%(School_management_system.action_student_wiz)d" type="action" string="UPDATE" class="oe_highlight"/>
+            </header>
+                <sheet>
+                    <group>
+                        <field name = "teacher"/>
+                        <field name="std"/>
+                        <field name="medium"/>
+                        <!-- <field name ="currency"/> -->
+                        <field name="fee"/>
+                        <field name = "standard_id" widget="many2many_tags"/>
+                        <field name = "depart"/>
+                    </group>
+                    <div>
+                        <field name="student_ids" domain="[('standard_id', '=', std)]"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<!-- GRAPH VIEW -->
+    <record id="student_graph_view" model="ir.ui.view">
+        <field name="name">student.graph.view</field>
+        <field name="model">standard.detail</field>
+        <field name="type">graph</field>
+        <field name="arch" type="xml">
+            <graph string="" type="bar">
+                <field name="fee" type ="measure"/>
+                <field name="std"/>
+            </graph>
+        </field>
+    </record>
+
+
+    <!-- ACTIONS (WINDOW) -->
+
+    <record id="action_std_detail" model="ir.actions.act_window">
+        <field name="name">Standard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">standard.detail</field>
+        <field name="view_mode">tree,form,graph</field>
+    </record>    
+       
+</odoo>
+                   
+
+                        

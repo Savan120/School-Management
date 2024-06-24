@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- THIS IS A STUDENT WIZARD FORM VIEW -->
+
+<record id="student_wizard_form_view" model="ir.ui.view">
+    <field name="name">Student_wizard</field>
+    <field name="model">student.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Leave">
+            <sheet>
+                <group>
+                    <field name="fee"/>
+                </group>
+            </sheet>
+            <footer class="oe_edit_only">
+                <button name="update_fees" type="object" string="Update Fees" class="oe_highlight"/>
+                <button string="Cancel" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<!-- WIZARD ACTIONS (WINDOW) -->
+
+<record id="action_student_wiz" model="ir.actions.act_window">
+        <field name="name">Update</field>
+        <field name="res_model">student.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="student_wizard_form_view"/>
+        <field name="target">new</field>
+        <field name="name">Update Fees</field>
+        <field name="binding_model_id" ref="model_standard_detail"/>
+</record>
+</odoo>
+
+
+<!-- 
+<record id="action_student_wiz1" model="ir.actions.act_window">
+        <field name="name">Update Fees</field>
+        <field name="res_model">student.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="student_wizard_form_view"/>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_standard_detail"/>
+</record> -->

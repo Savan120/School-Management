@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- THIS IS A STUDENT EXCEL FORM VIEW -->
+
+    <record id="student_excel_form_view" model="ir.ui.view">
+        <field name="name">Student_excel</field>
+        <field name="model">student.excel</field>
+        <field name="arch" type="xml">
+            <form string="Excel">
+                <sheet>
+                    <group>
+                        <field name="standard_id"/>
+                    </group>
+                </sheet>
+                <footer class="oe_edit_only">
+                    <button name="action_download_excel" type="object" string="Download Excel" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- WIZARD ACTIONS (WINDOW) -->
+
+    <record id="action_student_excel" model="ir.actions.act_window">
+            <field name="name">Student Report</field>
+            <field name="res_model">student.excel</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="student_excel_form_view"/>
+            <field name="target">new</field>
+            <field name="name">student report</field>
+            <field name="binding_model_id" ref="model_student_excel"/>
+    </record>
+
+</odoo>
+
+
+
+
+

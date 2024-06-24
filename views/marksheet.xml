@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- THIS IS A MARKSHEET.DETAIL TREE VIEW -->
+    <record id="marksheet_view" model="ir.ui.view">
+        <field name='name'>st.view</field>
+        <field name="model">marksheet.detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="stud_name"/>
+                <field name="standard_id"/>
+                <field name= "year"/>
+                <field name= "stud_roll"/>
+                <field name= "maths"/>
+                <field name= "sci"/>
+                <field name= "hindi"/>
+                <field name= "eng"/>
+                <field name="marks"/>
+                <field name="per"/>
+                <field name = "grade"/>
+            </tree>
+        </field>
+    </record>
+
+     <!-- THIS IS A MARKSHEET.DETAIL FORM VIEW -->
+
+    <record id="marksheet_form_view" model="ir.ui.view">
+        <field name="name">marksheet.form.view</field>
+        <field name="model">marksheet.detail</field>
+        <field name="arch" type = "xml">
+            <form string="marksheet detail">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name= "stud_name"/>
+                            <field name= "standard_id" options= "{'on_create': '1', 'no_open':'1'}"/>
+                            <field name= "maths"/>
+                            <field name= "sci"/>
+                            <field name= "hindi"/>
+                            <field name= "eng"/>
+                        </group>
+                        <group>
+                            <field name= "year"/>
+                            <field name= "stud_roll"/>
+                            <field name= "marks"/>
+                            <field name= "total_marks"/>
+                            <field name= "per"/>
+                            <field name= "grade"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record> 
+
+
+
+    <!-- ACTIONS (WINDOW) -->
+
+    <record id="action_marksheet_detail" model="ir.actions.act_window">
+        <field name="name">Marksheet</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">marksheet.detail</field>
+        <field name="view_mode">tree,form</field>
+    </record>    
+       
+</odoo>
+                   
+
+                        

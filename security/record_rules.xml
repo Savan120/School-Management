@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- System User Record Rule-->
+    <record id="student_record_rule" model="ir.rule">
+        <field name="name">Show Own Student</field>
+        <field name="model_id" ref="School_management_system.model_student_info"/>
+        <field name="domain_force">[('user_id', '=', user.id)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="False"/>
+    </record>
+    
+    <record id="admin_record_rule" model="ir.rule">
+        <field name="name">Show all record</field>
+        <field name="model_id" ref="School_management_system.model_student_info"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+        <field name="groups" eval="[(4, ref('School_management_system.admin_login_group'))]"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+    </record>
+
+</odoo>

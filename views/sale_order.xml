@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_view_form_school" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.school</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <!-- before, after, inside, attributes-->
+            <field name="payment_term_id" position="after">
+                <field name="student_id"/>
+            </field>
+            
+            <xpath expr="//form/sheet/notebook/page[@name='other_information']" position="inside">
+                <field name="hobby_ids"/>
+                <!-- <field name="properties_ids"/> -->
+                <field name= "properties_ids">
+                    <tree editable="buttom">
+                        <field name='property_ids'/>
+                        <field name='qty_id'/>
+                        <field name='price_id'/>
+                        <field name="total_id"/>
+                    </tree>
+                </field>
+                <group class="oe_subtotal_footer oe_right">
+                    <field name="total" style="font-weight: bold; font-size: 20px;"/>
+                </group>
+            </xpath>
+            <xpath expr="//notebook/page[@name='order_lines']/field[@name='order_line']/tree/field[@name='tax_id']" position="after">
+                <field name="dic_type"/>
+                <field name="sale_discount"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

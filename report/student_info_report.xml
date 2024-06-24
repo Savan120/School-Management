@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="student_report_template">
+            <t t-call="web.external_layout">
+                <style>
+                    .class{
+                        margin:30px;
+                        text-align:right;
+                        margin-top:20px;                    
+                    }
+
+                    .class1{
+                        float:right;
+                    }
+
+                    .class2{
+                        font-size:20px;
+                        text-align:center;
+                        padding:15px;
+                    }
+                    .class3{
+                        margin:20px;  
+                    }
+                    .class4{
+                        font-size:35px;
+                        text-align:left;  
+                        }
+                    table, th, td {
+                            border: 2px solid black;
+                            border-collapse: collapse;
+                    }
+
+                </style>
+                <main>
+                    <t t-foreach="docs" t-as="student">
+                        <div class="page">
+                            <div class="text-center">
+                                <h1 class="class3"> STUDENT MARKSHEET </h1>
+                            </div>
+                                <div class="class4">
+                                    <span t-esc="student.sequence"/>
+                                </div>
+                                <h4 class="class1">Roll No. :<span t-esc="student.roll"/></h4>
+                                <h4 >Student Name: <span t-esc="student.name"/></h4>
+                                <h4 class="class1">Birth Date :- <span t-esc="student.dob"/></h4>
+                                <h4 >Gender :-<span t-esc="student.gender"/></h4>
+                                <h4>Standard :- <span t-esc="student.standard_id.std"/></h4>
+                            </div>
+                            <div>
+                                <table width="100%">
+                                    <tr>
+                                        <th class="class2">Student Name</th>
+                                        <th class="class2">Standard</th>
+                                        <th class="class2">Year</th>
+                                        <th class="class2">Student Roll no.</th>
+                                        <th class="class2">Maths</th>
+                                        <th class="class2">Science</th>
+                                        <th class="class2">Hindi</th>
+                                        <th class="class2">English</th>
+                                        <th class="class2">Marks Obtained</th>
+                                        <th class="class2">Percentage</th>
+                                        <th class="class2">Grade</th>
+                                    </tr>
+                                    <tr t-foreach="docs.marksheet_ids" t-as="stud">
+                                        <td class="class2"><t t-esc="stud.stud_name.name"/></td>
+                                        <td class="class2"><t t-esc="stud.standard_id.std"/></td>
+                                        <td class="class2"><t t-esc="stud.year"/></td>
+                                        <td class="class2"><t t-esc="stud.stud_roll"/></td>
+                                        <td class="class2"><t t-esc="stud.maths"/></td>
+                                        <td class="class2"><t t-esc="stud.sci"/></td>
+                                        <td class="class2"><t t-esc="stud.hindi"/></td>
+                                        <td class="class2"><t t-esc="stud.eng"/></td>
+                                        <td class="class2"><t t-esc="stud.marks"/></td>
+                                        <td class="class2"><t t-esc="stud.per"/></td>
+                                        <td class="class2"><t t-esc="stud.grade"/></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </t>
+                    </main>
+                </t>
+        </template>
+
+
+        <template id = "student_property_invoice">
+            <t t-call="web.external_layout">
+                <style>
+                    .class{
+                        margin:30px;
+                        text-align:right;
+                        margin-top:20px;                    
+                    }
+
+                    .class1{
+                        float:right;
+                    }
+
+                    .class2{
+                        font-size:20px;
+                        text-align:center;
+                        padding:15px;
+                    }
+                    .class3{
+                        margin:20px;
+                    
+                    }
+                    .class4{
+                        font-size:35px;
+                        text-align:left;  
+                    }
+                    table, th, td {
+                        border: 2px solid black;
+                        border-collapse: collapse;
+                    }
+
+                </style>
+                <main>
+                    <t t-foreach="docs" t-as="student">
+                        <div class="page">
+                            <div class="text-center">
+                                <h1 class="class3"> STUDENT PROPERTY </h1>
+                            </div>
+                            <div class="class4">
+                                <span t-esc="student.sequence"/>
+                            </div>
+                            <h4 class="class1">Roll No. :<span t-esc="student.roll"/></h4>
+                                <h4 >Student Name: <span t-esc="student.name"/></h4>
+                                <h4 class="class1">Birth date :- <span t-esc="student.dob"/></h4>
+                                <h4 >Gender :-<span t-esc="student.gender"/></h4>
+                                <h4>Standard :- <span t-esc="student.standard_id.std"/></h4>
+                        </div>
+                        <div>
+                            <table width="100%" >
+                                <tr>
+                                <th class="class2">Product Name</th>
+                                    <th class="class2">Quantity</th>
+                                    <th class="class2">Unit Price</th>
+                                    <th class="class2">Total Price</th>
+                                </tr>
+                                <tr t-foreach="docs.properties_ids" t-as="stud">
+                                    <td class="class2"><t t-esc="stud.property_ids.name"/></td>
+                                    <td class="class2"><t t-esc="stud.qty_id"/></td>
+                                    <td class="class2"><t t-esc="stud.price_id"/></td>
+                                    <td class="class2"><t t-esc="stud.total_id"/></td>
+                                </tr>
+                            </table>
+                            <div>
+                                <h4 class="class1">TOTAL:- <span t-esc="student.total"/></h4>
+                            </div>
+                            <!-- <div>
+                                <h5><p>* Include 15% GST Charge</p></h5>
+                            </div> -->
+                        </div>
+                    </t>
+                </main>
+            </t>
+        </template>
+        <template id="student_fees_template">
+            <t t-call="web.external_layout">
+                <style>
+                    .class{
+                        margin:30px;
+                        text-align:right;
+                        margin-top:20px;                    
+                    }
+
+                    .class1{
+                        float:right;
+                    }
+
+                    .class2{
+                        font-size:35px;
+                        text-align:center;
+                        padding:15px;
+                    }
+                    .class3{
+                        padding:15px;  
+                    }
+                    .class4{
+                        font-size:30px;
+                        text-align:left;
+                    }
+                    table, th, td {
+                        border: 2px solid black;
+                        border-collapse: collapse;
+                    }
+                    table{
+                        border: 1px solid black;
+                        border-collapse: collapse;
+                        font-size:20px;
+                        width:100%;
+                    }
+                </style>
+                <main>
+                    <t t-foreach="docs" t-as="student">
+                        <div class="page">
+                            <hr>
+                            <table>
+                                <tr>
+                                    <td class="class2">FEES RECIPT</td>
+                                </tr>
+                                <tr>
+                                    <td class="class3">
+                                    <div class="class4">
+                                        <span t-esc="student.sequence"/>
+                                    </div>
+                                    <h4 class="class1">Roll No. :<span t-esc="student.roll"/></h4>
+                                    <h4 >Student Name: <span t-esc="student.name"/></h4>
+                                    <h4 class="class1">Gender :-<span t-esc="student.gender"/></h4>
+                                    <h4>Standard :- <span t-esc="student.standard_id.std"/></h4></td>
+                                </tr>
+                                <table width="100%" >
+                                    <tr>
+                                        <td class="class2"><t t-esc=""/></td>
+                                    </tr>
+                                </table>
+                            </table>
+                            </hr>
+                        </div>
+                    </t>
+                </main>
+            </t>
+        </template>              
+    </data>
+</odoo>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!-- THIS IS A TEACHER.DETAIL TREE VIEW -->
+    <record id="teacher_tree_view" model="ir.ui.view">
+        <field name='name'>teacher.tree.view</field>
+        <field name="model">teacher.info</field>
+        <field name="arch" type="xml">
+            <tree string="Teacher">
+                <field name = "teacher_name"/> 
+                <field name = "standard"/> 
+                <field name = "depart"/>
+                <field name = "phone"/> 
+                <field name = "mail"/>
+                <field name = "gender"/>
+                <field name = "salary"/>
+            </tree>
+        </field>
+    </record>
+
+     <!-- THIS IS A TEACHER.DETAIL FORM VIEW -->
+
+    <record id="teacher_form_view" model="ir.ui.view">
+        <field name="name">teacher.form.view</field>
+        <field name="model">teacher.info</field>
+        <field name="arch" type = "xml">
+            <form string="Teacher detail">
+                <header>
+                    <button name="%(School_management_system.action_teacher_wiz)d" type="action" string="UPDATE Salary" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div name="button_box"  position="inside" >
+                        <button name="student_count" type="object" class="oe_stat_button" icon="fa-list">
+                            <field name="all_student" string="Approve" widget="statinfo"/>
+                            <field name="reject_student" string="Reject" widget="statinfo"/>
+                        </button>
+                    </div>
+                    <div>
+                        <field name="image" class="oe_avatar" widget = "image"/>     
+                        <group string="Teacher Detail">
+                            <field name = "teacher_name"/> 
+                            <field name = "standard"/>
+                            <field name = "campus"/> 
+                            <!-- <field name = "school"/> -->S
+                            <field name = "parent"/>
+                            <field name = "student_name"/>
+                        </group>
+                        <group>
+                            <group string = "Status">
+                                <field name = "gender"/>
+                                <field name = "marital"/>
+                            </group>
+                            <group string = "Birth">
+                                <field name = "dob"/>
+                            </group>
+                        
+                        </group>
+                    </div>         
+                    <notebook>
+                        <page name="public information" string="Public Information">
+                            <group>
+                                <group string = "Contact Information">
+                                    <field name = "add"/>
+                                    <field name="mail" widget="email"/> 
+                                    <field name = "phone"/>   
+                                </group>
+                                <group string = "Position">
+                                    <field name = "depart"/>
+                                    <field name = "job"/>
+                                    <field name = "manager"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page name = "personal information" string = "Personal Information">
+                            <group>
+                                <group string = "Citizenship Other information">
+                                    <field name = "country1"/>
+                                    <field name = "passport"/>
+                                    <field name = "bank"/>
+                                </group>
+                                <group string = "Contact Information">
+                                    <field name = "address"/>
+                                </group>
+                                <group string= "Salary">
+                                    <field name="salary"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field> 
+    </record>   
+
+<!-- THIS IS AN TEACHER ACTION VIEW  -->
+     <record id="action_teacher_detail" model="ir.actions.act_window">
+        <field name="name">Teacher</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">teacher.info</field>
+        <field name="view_mode">tree,form</field>
+        <!-- <field name="search_view_id" ref="student_search_view"/> -->
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+    </record>
+
+</odoo>

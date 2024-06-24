@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- THIS IS A SUBJECT.DETAIL TREE VIEW -->
+    <record id="subject_tree_view" model="ir.ui.view">
+        <field name='name'>subject.tree.view</field>
+        <field name="model">subject.detail</field>
+        <field name="arch" type="xml">
+            <tree string = "subject">
+                <!-- <field name = "std"/>
+                <field name = "medium"/> -->
+                <field name = "sub"/>  
+                <field name = "code"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- THIS IS A SUBJECT.DETAIL FORM VIEW -->
+    <record id="subject_form_view" model="ir.ui.view">
+        <field name="name">subject.form.view</field>
+        <field name="model">subject.detail</field>
+        <field name="arch" type = "xml">
+            <form string="subject detail">
+                <sheet>
+                    <group>
+                        <field name = "sub"/>  
+                        <field name = "code"/>
+                    </group>    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- ACTIONS (WINDOW) -->
+    <record id="action_subject_detail" model="ir.actions.act_window">
+        <field name="name">Subject</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">subject.detail</field>
+        <field name="view_mode">tree,form</field>
+    </record>    
+ 
+</odoo>
+                   
+
+                        

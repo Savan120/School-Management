@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+
+     <!-- THIS IS A STUDENT WIZARD FORM VIEW -->
+
+<record id="teacher_wizard_form_view" model="ir.ui.view">
+    <field name="name">salary_wizard</field>
+    <field name="model">salary.wizard</field>
+    <field name="arch" type="xml">
+        <form string="Leave">
+            <sheet>
+                <group>
+                    <field name="name" default='default_get'/>
+                    <field name="phone"/>
+                    <field name="mail"/>
+                    <field name="marital"/>
+                    <field name="salary"/>
+                </group>
+            </sheet>
+            <footer class="oe_edit_only">
+                <button name="update_salary" type="object" string="Update salary" class="oe_highlight"/>
+                <button string="Cancel" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+
+<!-- WIZARD ACTIONS (WINDOW) -->
+
+<record id="action_teacher_wiz" model="ir.actions.act_window">
+        <field name="name">Update</field>
+        <field name="res_model">salary.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="teacher_wizard_form_view"/>
+        <field name="target">new</field>
+        <field name="name">Update Salary</field>
+        <field name="binding_model_id" ref="model_teacher_info"/>
+</record>
+</odoo>
+
+
+<!-- 
+<record id="action_teacher_wiz1" model="ir.actions.act_window">
+        <field name="name">Update Fees</field>
+        <field name="res_model">teacher.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="teacher_wizard_form_view"/>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_standard_detail"/>
+</record> -->

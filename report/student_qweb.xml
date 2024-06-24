@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record id="action_student_marksheet_report" model="ir.actions.report">
+            <field name="name">Student Marksheet</field>
+            <field name="model">student.info</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">School_management_system.student_report_template</field>
+            <field name="report_file">School_management_system.student_info_report</field>
+            <field name="binding_model_id" ref="model_student_info"/>
+            <field name="binding_type">report</field>
+        </record> 
+
+          <record id="action_student_property" model="ir.actions.report">
+            <field name="name">Student Property Invoice</field>
+            <field name="model">student.info</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">School_management_system.student_property_invoice</field>
+            <field name="report_file">School_management_system.student_info_report</field>
+            <field name="binding_model_id" ref="model_student_info"/>
+            <field name="binding_type">report</field>
+        </record> 
+
+        <record id="action_student_fee_recipt" model="ir.actions.report">
+            <field name="name">Student Fee Recipt</field>
+            <field name="model">student.info</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">School_management_system.student_fees_template</field>
+            <field name="report_file">School_management_system.student_info_report</field>
+            <field name="binding_model_id" ref="model_student_info"/>
+            <field name="binding_type">report</field>
+        </record> 
+    </data>
+</odoo>

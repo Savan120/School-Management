@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+<!-- THIS IS A LIBRARY.DETAIL TREE VIEW -->
+    <record id="library_view" model="ir.ui.view">
+        <field name='name'>st.view</field>
+        <field name="model">library.detail</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- <field name = "student"/> -->
+                <field name="standard_id"/>
+                <field name = "book"/>
+                <field name = "purchase"/>
+                <field name = "due" decoration-danger = "today >= due"/> 
+                <field name="price"/>
+            </tree>
+        </field>
+    </record>
+
+     <!-- THIS IS A LIBRARY.DETAIL FORM VIEW -->
+
+    <record id="lib_form_view" model="ir.ui.view">
+        <field name="name">lib.form.view</field>
+        <field name="model">library.detail</field>
+        <field name="arch" type = "xml">
+            <form string="lib detail">
+            <!-- <header>
+                <button name="do_search" type = "object" class= "oe_highlight" string = "SEARCH"/>
+            </header> -->
+                <sheet>
+                    <group>
+                        <group string = "Student Detail">
+                            <field name = "standard_id"/>
+                            <!-- <field name= "name"/> -->
+                            <field name="student_id" domain = "[('standard_id', '=' , standard_id)]" widget="many2many_tags"/>
+                            <field name = "book"/>
+                            <field name="price"/>
+                        </group>
+                        <group string = "Purchase Detail">
+                            <!-- <field name="purchase" widget="daterange" class="oe_inline" options="{'related_end_date': 'due'}"/>
+                            <field name="due" widget="daterange" class="oe_inline" options="{'related_start_date': 'purchase'}"/> -->
+                            <field name = "purchase"/>
+                            <field name = "due"/>
+                            <field name = "partner"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <!-- ACTIONS (WINDOW) -->
+
+    <record id="action_lib_detail" model="ir.actions.act_window">
+        <field name="name">Library</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">library.detail</field>
+        <field name="view_mode">tree,form</field>
+    </record>    
+     
+</odoo>
+                   
+
+                        
